@@ -3,3 +3,118 @@ The File interface provides information about files and allows JavaScript in a w
 File objects are generally retrieved from a FileList object returned as a result of a user selecting files using the <input> element, or from a drag and drop operation's DataTransfer object.
 
 A File object is a specific kind of Blob, and can be used in any context that a Blob can. In particular, FileReader, URL.createObjectURL(), createImageBitmap(), and XMLHttpRequest.send() accept both Blobs and Files.
+The FileReader object lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using File or Blob objects to specify the file or data to read.
+
+FileReader can only access the contents of files that the user has explicitly selected, either using an HTML <input type="file"> element or by drag and drop. It cannot be used to read a file by pathname from the user's file system.
+
+Instance methods
+FileReader.abort()
+Aborts the read operation. Upon return, the readyState will be DONE.
+
+FileReader.readAsArrayBuffer()
+Starts reading the contents of the specified Blob, once finished, the result attribute contains an ArrayBuffer representing the file's data.
+
+FileReader.readAsBinaryString()
+Starts reading the contents of the specified Blob, once finished, the result attribute contains the raw binary data from the file as a string.
+
+FileReader.readAsDataURL()
+Starts reading the contents of the specified Blob, once finished, the result attribute contains a data: URL representing the file's data.
+
+FileReader.readAsText()
+Starts reading the contents of the specified Blob, once finished, the result attribute contains the contents of the file as a text string. An optional encoding name can be specified.
+
+Events
+Listen to these events using addEventListener() or by assigning an event listener to the oneventname property of this interface. Remove the event listeners with removeEventListener(), once FileReader is no longer used, to avoid memory leaks.
+
+abort
+Fired when a read has been aborted, for example because the program called FileReader.abort().
+
+error
+Fired when the read failed due to an error.
+
+load
+Fired when a read has completed successfully.
+
+loadend
+Fired when a read has completed, successfully or not.
+
+loadstart
+Fired when a read has started.
+
+progress
+Fired periodically as data is read.
+ As mentioned in the chapter Blob, FileReadercan read not just files, but any blobs.
+
+We can use it to convert a blob to another format:
+
+readAsArrayBuffer(blob) – to ArrayBuffer,
+readAsText(blob, [encoding]) – to string (an alternative to TextDecoder),
+readAsDataURL(blob) – to base64 data url.
+The fetch() method in JavaScript is used to request data from a server. The request can be of any type of API that returns the data in JSON or XML. The fetch() method requires one parameter, the URL to request, and returns a promise.
+
+Syntax:
+
+fetch('url') //api for the get request
+.then(response => response.json())
+.then(data => console.log(data));
+Parameters: This method requires one parameter and accepts two parameters:
+
+URL: It is the URL to which the request is to be made.
+Options: It is an array of properties. It is an optional parameter.
+Return Value: It returns a promise whether it is resolved or not. The return data can be of the format JSON or XML. It can be an array of objects or simply a single object.
+A typical fetch request consists of two await calls:
+
+let response = await fetch(url, options); // resolves with response headers
+let result = await response.json(); // read body as json
+Or, without await:
+
+fetch(url, options)
+.then(response => response.json())
+.then(result => /* process result */)
+Response properties:
+
+response.status – HTTP code of the response,
+response.ok – true if the status is 200-299.
+response.headers – Map-like object with HTTP headers.
+Methods to get response body:
+
+response.text() – return the response as text,
+response.json() – parse the response as JSON object,
+response.formData() – return the response as FormData object (multipart/form-data encoding, see the next chapter),
+response.blob() – return the response as Blob (binary data with type),
+response.arrayBuffer() – return the response as ArrayBuffer (low-level binary data),
+Fetch options so far:
+
+method – HTTP-method,
+headers – an object with request headers (not any header is allowed),
+body – the data to send (request body) as string, FormData, BufferSource, Blob or UrlSearchParams object.
+
+We can also submit binary data directly using Blob or BufferSource.
+
+Response properties:
+
+response.status – HTTP code of the response,
+
+response.ok – true is the status is 200-299.
+
+response.headers – Map-like object with HTTP headers.
+
+Methods to get response body:
+
+response.json() – parse the response as JSON object,
+
+response.text() – return the response as text,
+
+response.formData() – return the response as FormData object (form/multipart encoding, see the next chapter),
+
+response.blob() – return the response as Blob(binary data with type),
+
+response.arrayBuffer() – return the response as ArrayBuffer (pure binary data),
+
+Fetch options so far:
+
+method – HTTP-method,
+
+headers – an object with request headers (not any header is allowed),
+
+body – string, FormData, BufferSource, Blob or UrlSearchParams object to send.
