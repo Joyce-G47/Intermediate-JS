@@ -1,0 +1,17 @@
+Node JS is a JavaScript runtime. It allows to run JavaScript not just in the browser but anywhere else. Node JS uses V8 which is JavaScript engine, V8 takes JS code compiles it to machine code.
+How to install Node.js on Windows
+The first steps in using Node.js is the installation of the Node.js libraries on the client system. To perform the installation of Node.js, perform the below steps;
+o to the site https://nodejs.org/en/download/ and download the necessary binary files. In our example, we are going to the download the 32-bit setup files for Node.js.
+Double click on the downloaded .msi file to start the installation. Click the Run button in the first screen to begin the installation.
+
+Installing NPM (Node Package Manager) on Windows
+The other way to install Node.js on any client machine is to use a "package manager
+In windows, the node package manager is known as Chocolatey. It was designed to be a decentralized framework for quickly installing applications and tools that you need.
+
+To install Node.js via Chocolatey, the following steps need to be performed.
+
+The Chocolatey website (https://chocolatey.org/) has very clear instructions on how this framework needs to be installed.
+The first step is to run the below command in the command prompt windows. This command is taken from the Chocolatey web site and is the standard command for installing Node.js via Chocolatey. 
+The below command is a PowerShell command which calls the remote PowerShell script on the Chocolatey website. This command needs to be run in a PowerShell command window.
+This PowerShell script does all the necessary work of downloading the required components and installing them accordingly.
+
